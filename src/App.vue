@@ -1,135 +1,149 @@
 <template>
-  <div class="main-cont">
-    <form @submit.prevent="onSubmit">
-      <div class="flex-container">
-        <div>
-          <p>Фамилия*:</p>
-          <input type="text" v-model="v$.form.lastname.$model" />
-          <div class="input-errors" v-for="(error, index) of v$.form.lastname.$errors" :key="index">
-            <div class="error-msg">{{ error.$message }}</div>
+  <div class="body-container">
+    <div class="main-cont">
+      <form @submit.prevent="onSubmit">
+        <div class="flex-container">
+          <div>
+            <p>Фамилия*:</p>
+            <input type="text" v-model="v$.form.lastname.$model" />
+            <div class="input-errors" v-for="(error, index) of v$.form.lastname.$errors" :key="index">
+              <div class="error-msg">{{ error.$message }}</div>
+            </div>
           </div>
-        </div>
-        <div>
-          <p>Имя*:</p>
-          <input type="text" v-model="v$.form.firstname.$model" />
-          <div class="input-errors" v-for="(error, index) of v$.form.firstname.$errors" :key="index">
-            <div class="error-msg">{{ error.$message }}</div>
+          <div>
+            <p>Имя*:</p>
+            <input type="text" v-model="v$.form.firstname.$model" />
+            <div class="input-errors" v-for="(error, index) of v$.form.firstname.$errors" :key="index">
+              <div class="error-msg">{{ error.$message }}</div>
+            </div>
           </div>
-        </div>
-        <div>
-          <p>Отчество:</p>
-          <input type="text" v-model="v$.form.patronymic.$model" />
-          <div class="input-errors" v-for="(error, index) of v$.form.patronymic.$errors" :key="index">
-            <div class="error-msg">{{ error.$message }}</div>
+          <div>
+            <p>Отчество:</p>
+            <input type="text" v-model="v$.form.patronymic.$model" />
+            <div class="input-errors" v-for="(error, index) of v$.form.patronymic.$errors" :key="index">
+              <div class="error-msg">{{ error.$message }}</div>
+            </div>
           </div>
-        </div>
 
-        <div>
-          <p>Дата рождения*:</p>
-          <input type="text" v-model="v$.form.birthday.$model" />
-          <div class="input-errors" v-for="(error, index) of v$.form.birthday.$errors" :key="index">
-            <div class="error-msg">{{ error.$message }}</div>
+          <div>
+            <p>Дата рождения*:</p>
+            <input type="text" v-model="v$.form.birthday.$model" />
+            <div class="input-errors" v-for="(error, index) of v$.form.birthday.$errors" :key="index">
+              <div class="error-msg">{{ error.$message }}</div>
+            </div>
           </div>
-        </div>
-        <div>
-          <p>Номер телефона*:</p>
-          <input type="text" v-model="v$.form.tel.$model" />
-          <div class="input-errors" v-for="(error, index) of v$.form.tel.$errors" :key="index">
-            <div class="error-msg">{{ error.$message }}</div>
+          <div>
+            <p>Номер телефона*:</p>
+            <input type="text" v-model="v$.form.tel.$model" />
+            <div class="input-errors" v-for="(error, index) of v$.form.tel.$errors" :key="index">
+              <div class="error-msg">{{ error.$message }}</div>
+            </div>
           </div>
-        </div>
-        <div>
-          <p>Пол:</p>
-          <input type="text" />
-        </div>
+          <div>
+            <p>Пол:</p>
+            <input type="text" />
+          </div>
 
-        <div>
-          <p>Группа клиентов*:</p>
-          <select multiple v-model="v$.form.birthday.$model">
-            <option>VIP</option>
-            <option>Проблемные</option>
-            <option>ОМС</option>
-          </select>
-          <div class="input-errors" v-for="(error, index) of v$.form.clientGroup.$errors" :key="index">
-            <div class="error-msg">{{ error.$message }}</div>
+          <div>
+            <p>Группа клиентов*:</p>
+            <select multiple v-model="v$.form.clientGroup.$model">
+              <option>VIP</option>
+              <option>Проблемные</option>
+              <option>ОМС</option>
+            </select>
+            <div class="input-errors" v-for="(error, index) of v$.form.clientGroup.$errors" :key="index">
+              <div class="error-msg">{{ error.$message }}</div>
+            </div>
+          </div>
+          <div>
+            <p>Лечащий врач:</p>
+            <select>
+              <option>Иванов</option>
+              <option>Захаров</option>
+              <option>Чернышева</option>
+            </select>
+          </div>
+          <div class="smscheckbox">
+            <input type="checkbox" id="nosms" /><label for="nosms">Не отправлять СМС</label>
+          </div>
+
+          <div>
+            <p>Индекс:</p>
+            <input type="text" v-model="v$.form.index.$model" />
+            <div class="input-errors" v-for="(error, index) of v$.form.index.$errors" :key="index">
+              <div class="error-msg">{{ error.$message }}</div>
+            </div>
+          </div>
+          <div>
+            <p>Страна:</p>
+            <input type="text" />
+          </div>
+          <div>
+            <p>Область:</p>
+            <input type="text" />
+          </div>
+
+          <div>
+            <p>Город*:</p>
+            <input type="text" v-model="v$.form.city.$model" />
+            <div class="input-errors" v-for="(error, index) of v$.form.city.$errors" :key="index">
+              <div class="error-msg">{{ error.$message }}</div>
+            </div>
+          </div>
+          <div>
+            <p>Улица:</p>
+            <input type="text" />
+          </div>
+          <div>
+            <p>Дом:</p>
+            <input type="text" />
+          </div>
+
+          <div>
+            <p>Тип документа*:</p>
+            <select class="documentSelector" v-model="v$.form.typeOfDocument.$model">
+              <option>Паспорт</option>
+              <option>Свидетельство о рождении</option>
+              <option>Вод. удостоверение</option>
+            </select>
+            <div class="input-errors" v-for="(error, index) of v$.form.typeOfDocument.$errors" :key="index">
+              <div class="error-msg">{{ error.$message }}</div>
+            </div>
+          </div>
+          <div>
+            <p>Серия:</p>
+            <input type="text" v-model="v$.form.seria.$model" />
+            <div class="input-errors" v-for="(error, index) of v$.form.seria.$errors" :key="index">
+              <div class="error-msg">{{ error.$message }}</div>
+            </div>
+          </div>
+          <div>
+            <p>Номер:</p>
+            <input type="text" v-model="v$.form.number.$model" />
+            <div class="input-errors" v-for="(error, index) of v$.form.number.$errors" :key="index">
+              <div class="error-msg">{{ error.$message }}</div>
+            </div>
+          </div>
+
+          <div>
+            <p>Кем выдан:</p>
+            <input type="text" />
+          </div>
+          <div>
+            <p>Дата выдачи*:</p>
+            <input type="date" v-model="v$.form.dateOfDoc.$model" />
+            <div class="input-errors" v-for="(error, index) of v$.form.dateOfDoc.$errors" :key="index">
+              <div class="error-msg">{{ error.$message }}</div>
+            </div>
+          </div>
+          <div>
+            <p>* - Обязательные поля</p>
+            <button class="submit" @click="formChecker" name="register">Завершить регистрацию</button>
           </div>
         </div>
-        <div>
-          <p>Лечащий врач:</p>
-          <select>
-            <option>Иванов</option>
-            <option>Захаров</option>
-            <option>Чернышева</option>
-          </select>
-        </div>
-        <div class="smscheckbox"><input type="checkbox" id="nosms" /><label for="nosms">Не отправлять СМС</label></div>
-
-        <div>
-          <p>Индекс:</p>
-          <input type="text" />
-        </div>
-        <div>
-          <p>Страна:</p>
-          <input type="text" />
-        </div>
-        <div>
-          <p>Область:</p>
-          <input type="text" />
-        </div>
-
-        <div>
-          <p>Город*:</p>
-          <input type="text" v-model="v$.form.city.$model" />
-          <div class="input-errors" v-for="(error, index) of v$.form.city.$errors" :key="index">
-            <div class="error-msg">{{ error.$message }}</div>
-          </div>
-        </div>
-        <div>
-          <p>Улица:</p>
-          <input type="text" />
-        </div>
-        <div>
-          <p>Дом:</p>
-          <input type="text" />
-        </div>
-
-        <div>
-          <p>Тип документа*:</p>
-          <select multiple v-model="v$.form.typeOfDocument.$model">
-            <option>Паспорт</option>
-            <option>Свидетельство о рождении</option>
-            <option>Вод. удостоверение</option>
-          </select>
-          <div class="input-errors" v-for="(error, index) of v$.form.typeOfDocument.$errors" :key="index">
-            <div class="error-msg">{{ error.$message }}</div>
-          </div>
-        </div>
-        <div>
-          <p>Серия:</p>
-          <input type="text" />
-        </div>
-        <div>
-          <p>Номер:</p>
-          <input type="text" />
-        </div>
-
-        <div>
-          <p>Кем выдан:</p>
-          <input type="text" />
-        </div>
-        <div>
-          <p>Дата выдачи*:</p>
-          <input type="date" v-model="v$.form.dateOfDoc.$model" />
-          <div class="input-errors" v-for="(error, index) of v$.form.dateOfDoc.$errors" :key="index">
-            <div class="error-msg">{{ error.$message }}</div>
-          </div>
-        </div>
-        <div>
-          <p>* - Обязательные поля</p>
-          <button class="submit" @click="v$.form.$validate" name="register">Завершить регистрацию</button>
-        </div>
-      </div>
-    </form>
+      </form>
+      <div v-if="successForm == true" class="popup">&#10003; Регистрация прошла успешно</div>
+    </div>
   </div>
 </template>
 
@@ -138,7 +152,7 @@ import useVuelidate from "@vuelidate/core";
 import { required, helpers } from "@vuelidate/validators";
 export function validName(name) {
   let validNamePattern = new RegExp("[А-ЯA-Z|а-яa-z][А-ЯA-Z|а-яa-z|-]");
-  if (validNamePattern.test(name)) {
+  if (validNamePattern.test(name) || name == "") {
     return true;
   }
   return false;
@@ -157,6 +171,14 @@ export function validTel(tel) {
   }
   return false;
 }
+export function indexValid(idx) {
+  let validIdx = /^\d+$/gm;
+  if (validIdx.test(idx) || idx == "") {
+    return true;
+  }
+  return false;
+}
+
 export default {
   name: "App",
   setup() {
@@ -164,6 +186,7 @@ export default {
   },
   data() {
     return {
+      successForm: false,
       form: {
         lastname: "",
         firstname: "",
@@ -171,7 +194,7 @@ export default {
         birthday: "",
         tel: "",
         sex: "",
-        clientGroup: "",
+        clientGroup: [],
         doctor: "",
         smsCheck: false,
         index: "",
@@ -236,6 +259,24 @@ export default {
         },
         dateOfDoc: {
           required: helpers.withMessage("Обязательное поле", required)
+        },
+        index: {
+          index_validation: {
+            $validator: indexValid,
+            $message: "Индекс должен состоять только из цифр"
+          }
+        },
+        seria: {
+          seria_validation: {
+            $validator: indexValid,
+            $message: "Серия должна состоять только из цифр"
+          }
+        },
+        number: {
+          number_validation: {
+            $validator: indexValid,
+            $message: "Номер должен состоять только из цифр"
+          }
         }
       }
     };
@@ -248,7 +289,18 @@ export default {
   //   }
   // },
 
-  components: {}
+  components: {},
+  methods: {
+    formChecker() {
+      setTimeout(this.v$.form.$validate, 200);
+      if (this.v$.form.$silentErrors.length > 0) {
+        this.successForm = false;
+      } else {
+        this.successForm = true;
+        setTimeout(() => (this.successForm = false), 1500);
+      }
+    }
+  }
 };
 </script>
 
@@ -263,14 +315,14 @@ export default {
   color: maroon;
 }
 body {
-  background: url("https://w.wallhaven.cc/full/k9/wallhaven-k9r6g7.jpg") center no-repeat;
+  background: url("https://w.wallhaven.cc/full/k9/wallhaven-k9r6g7.jpg") center no-repeat fixed;
   background-size: cover;
   color: #333;
   font-size: 18px;
   font-family: "Raleway", sans-serif;
-  height: 100vh;
+  min-height: 100vh;
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
 }
 button.submit {
   background: rgba(255, 255, 255, 0.25);
@@ -293,49 +345,25 @@ button.success {
   border-color: #27ae60;
   color: #fff;
 }
+.popup {
+  width: 300px;
+  padding: 20px;
+  background-color: rgb(0, 255, 85);
+  color: black;
+  position: fixed;
+  top: calc(50% - 50%);
+  left: calc(50% - 50%);
+}
 .main-cont {
-  margin-top: 2%;
+  background: rgba(255, 255, 255, 0.6);
+  margin-top: 1em;
   border-radius: 0.5em;
   box-shadow: 0 0 1em 0 rgba(51, 51, 51, 0.25);
-  display: flex;
   max-width: 880px;
   overflow: hidden;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
   padding: 2em;
-  position: absolute;
-  top: 50%;
-  left: 50%;
   z-index: 1;
   width: 98%;
-  &:before {
-    background: url("https://w.wallhaven.cc/full/k9/wallhaven-k9r6g7.jpg") center no-repeat;
-    background-size: cover;
-    content: "";
-    -webkit-filter: blur(10px);
-    filter: blur(10px);
-    height: 100vh;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: -1;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    width: 100vw;
-  }
-  &:after {
-    background: rgba(255, 255, 255, 0.6);
-    content: "";
-    display: block;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    width: 100%;
-  }
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -343,10 +371,13 @@ button.success {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 10px;
 }
 select {
   overflow: hidden;
+  min-height: 25px;
+  padding: 0.5em 0.5em;
+  border-radius: 5px;
   outline: none;
   border: 1px solid rgba(0, 0, 0, 0.1);
   background: rgba(0, 0, 0, 0.3);
@@ -405,7 +436,11 @@ select {
     }
   }
 }
-
+.body-container {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
 @media screen and (max-width: 942px) {
   .flex-container {
     grid-gap: 15px;
